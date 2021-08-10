@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import CardList from 'CardList.js';
+import MovieList from 'MovieList.js';
 import './App.css';
 
 function App() {
