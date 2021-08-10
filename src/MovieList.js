@@ -18,9 +18,9 @@ function MovieList() {
   const List = (props) => {
   return
   (
-    <div>
+    <div className="row">
       {props.movies.slice(0, 4).map((movie, index) => {
-        <div key={movie.id}>
+        <div className="col-3" key={movie.id}>
           <h1>{movie.original_title}</h1>
           <h3>{movie.tagline}</h3>
           <h3>{movie.vote_average}</h3>
