@@ -1,6 +1,9 @@
-import React from "react";
+import React from 'react';
+import { useState, useEffect } from 'react';
 
 const DetailMovie = (props) => {
+  const movieId = props.match.params.id;
+  
   const[detailMovie, setDetailMovie] = useState([]);
   
   const getMovies = async() => {
@@ -13,6 +16,13 @@ const DetailMovie = (props) => {
       getData();
     }, []);
   }
-    
-  })
-}
+  
+  return
+  (
+    <div>
+       <Movie />
+    </div>
+  )
+};
+
+export default DetailMovie
