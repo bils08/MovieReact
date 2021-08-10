@@ -1,6 +1,7 @@
 import './App.css';
 import MovieList from 'MovieList.js';
 import DetailMovie  from 'DetailMovie.js';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 function App() {
    return (

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const DetailMovie = (props) => {
   
@@ -14,6 +15,8 @@ const DetailMovie = (props) => {
     }, []);
   }
   
+  const date = Date().toLocaleString();
+  
   const movieId = props.match.params.id;
   
   const[detailMovie, setDetailMovie] = useState([]);
@@ -21,8 +24,17 @@ const DetailMovie = (props) => {
   const Movie = detailMovie.filter(movie => movie.id == movieId).map((movie,index) => {
     return (
        <div key={movie.id}>
-          <p></p>
-          <button>Show</button>
+          <p>{movie.id}</p>
+          <p>{movie.original_title}</p>
+          <p>{movie.overview}</p>
+          <p>{date}</p>
+          <p>{movie.runtime} minutes</p>
+          <p>{movie.status}</p>
+          <p>{movie.tagline}</p>
+          <p>{movie.title}</p>
+          <p>{movie.vote_average}</p>
+          <p>{movie.vote_count}</p>
+          <Link to={"/"}>Back</Link>
       </div>
     )
   });

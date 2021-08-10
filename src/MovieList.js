@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function MovieList() {
   const[movies, setMovies] = useState([]);
@@ -23,9 +24,8 @@ function MovieList() {
           <h1>{movie.original_title}</h1>
           <h3>{movie.tagline}</h3>
           <h3>{movie.vote_average}</h3>
-          <Link to={"/edit/"+props.journal._id}>edit</Link> | 
-            <a href="#" onClick={() => { props.deleteJournal(props.journal._id)}}>delete</a>
-          </div>
+          <Link to={"/detailmovie/"+movie.id}>SHOW</Link>
+        </div>
       })}
     </div>
   );
