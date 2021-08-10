@@ -1,25 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import MovieList from 'MovieList.js';
 import './App.css';
+import MovieList from 'MovieList.js';
+import DetailMovie  from 'DetailMovie.js';
 
 function App() {
-  const[movies, setMovies] = useState([]);
-  
-  const getMovies = async() => {
-    useEffect(() => {
-      async function getData() {
-        const response = await fetch('/api/movies');
-        const payload = await response.json();
-        setMovies(payload.data);
-      }  
-      getData();
-    }, []);
-  }
-  
-  return (
-    <div className="App">
-       <MovieList movies={movies} />
-    </div>
+   return (
+    <Router>
+      <Navbar />
+      <br />
+      <Route path="/" exact component={MovieList} />
+      <Route path="/detailmovie/:id" component={DetailMovie} />
+    </Router>
   );
 }
 

@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-const MovieList = (props) => {
+function MovieList() {
+  const[movies, setMovies] = useState([]);
+  
+  const getMovies = async() => {
+    useEffect(() => {
+      async function getData() {
+        const response = await fetch('/api/movies');
+        const payload = await response.json();
+        setMovies(payload.data);
+      }  
+      getData();
+    }, []);
+  }
+  
+  const List = (props) => {
   return
   (
     <div>
@@ -9,11 +23,19 @@ const MovieList = (props) => {
           <h1>{movie.original_title}</h1>
           <h3>{movie.tagline}</h3>
           <h3>{movie.vote_average}</h3>
-          <button>Show</button>
-        </div>
+          <Link to={"/edit/"+props.journal._id}>edit</Link> | 
+            <a href="#" onClick={() => { props.deleteJournal(props.journal._id)}}>delete</a>
+          </div>
       })}
     </div>
   );
 };
+  
+  return (
+    <div className="MovieList">
+       <List movies={movies} />
+    </div>
+  );
+}
 
 export default MovieList;
